@@ -1,0 +1,155 @@
+
+$linkColor: #5681BF;
+$lineColor: #E1E1E1;
+$lineHighlightColor: #FFF;
+$bgColor: #F7F7F7;
+$fontSize: 12px;
+$fontColor: #000;
+$senderWidth: 11.75em;
+$senderMyselfColor: #45537F;
+$senderNormalColor: #636363;
+$timeColor: #a099a1;
+$messageBgColor: #FFF;
+$messageHightlightColor: #F0F;
+$systemMessageBgColor: #D3F4CD;
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lucida Grande', HiraKakuProN-W3;
+  font-size: $fontSize;
+  margin: 0;
+  padding: 0;
+  background-color: $bgColor;
+}
+
+a { color: $linkColor; }
+.url { word-break: break-all; }
+.address { word-break: break-all; }
+strong.highlight {
+  // TODO: 要調整
+  color: white;
+  background-color: #7097c4;
+  font-weight: normal;
+  border: 1px solid #5681bf;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+
+// メッセージエリア
+body.normal {
+  background-color: #FFF;
+  background-color: $bgColor;
+  color: $fontColor;
+  word-wrap: break-word;
+
+  // 各メッセージ間の線
+  .line {
+    border-top: 1px solid $lineColor;
+    box-shadow: 0 1px $lineHighlightColor inset;
+    padding: 0 0 0 $senderWidth;
+  }
+
+  // 送信者部分
+  .sender {
+    float: left;
+    margin-left: -$senderWidth;
+    padding: 0.4em 0.4em 0 0;
+    width: $senderWidth;
+    text-align: right;
+    box-sizing: border-box;
+    // 自分
+    &[type=myself] {
+      color: $senderMyselfColor;
+      font-weight: bold;
+
+      &:after {
+        content: " ★";
+      }
+    }
+    // 他ユーザ
+    &[type=normal] {
+      color: $senderNormalColor;
+      font-weight: bold;
+    }
+  }
+
+  // 時間
+  .time {
+    color: $timeColor;
+    float: right;
+    padding: 0.4em 0.7em 0 0;
+    font-size: 0.8em;
+  }
+
+  // システムメッセージ
+  .message {
+    display: block;
+    padding: 0.4em 3.75em 0.4em 0.5em;
+    background-color: $messageBgColor;
+    border-left: 1px solid $lineHighlightColor;
+    box-shadow: -1px 0 $lineColor;
+
+    .highlight {
+      color: $messageHightlightColor;
+      font-weight: bold;
+    }
+
+    &[type=system], &[type=join], &[type=part], &[type=kick], &[type=quit],
+    &[type=nick] {
+      background-color: $systemMessageBgColor;
+      font-size: 0.8em;
+    }
+
+    &:before {
+      float: left;
+      margin-left: -$senderWidth;
+      padding: 0 1.1em 0 0;
+      width: $senderWidth;
+      text-align: right;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+    &[type=join]:before {
+      content: "Welcome!";
+    }
+    &[type=part]:before {
+      content: "Leaving";
+    }
+    &[type=kick]:before {
+      content: "Owned!";
+    }
+    &[type=quit]:before {
+      content: "Bye!";
+    }
+    &[type=nick]:before {
+      content: "NickServ";
+    }
+
+    .url {
+      font-size: 0.9em;
+    }
+    .inlineimage {
+      box-shadow: none;
+      margin: 0.5em 0.5em 0.5em 0;
+      border: 1px solid $lineColor;
+    }
+  }
+}
+
+body.console {
+  padding: 5px;
+  font-size: 0.8em;
+
+  .sender {
+    &:before {
+      content: "(";
+    }
+    &:after {
+      content: ") ";
+    }
+  }
+}

@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/* line 16, HipChatic.scss */
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 21, HipChatic.scss */
+body {
+  font-family: 'Lucida Grande', HiraKakuProN-W3;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+/* line 29, HipChatic.scss */
+a {
+  color: #5681bf;
+}
+
+/* line 30, HipChatic.scss */
+.url {
+  word-break: break-all;
+}
+
+/* line 31, HipChatic.scss */
+.address {
+  word-break: break-all;
+}
+
+/* line 32, HipChatic.scss */
+strong.highlight {
+  color: white;
+  background-color: #7097c4;
+  font-weight: normal;
+  border: 1px solid #5681bf;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+
+/* line 43, HipChatic.scss */
+body.normal {
+  background-color: #FFF;
+  background-color: #f7f7f7;
+  color: black;
+  word-wrap: break-word;
+}
+/* line 50, HipChatic.scss */
+body.normal .line {
+  border-top: 1px solid #e1e1e1;
+  box-shadow: 0 1px white inset;
+  padding: 0 0 0 11.75em;
+}
+/* line 57, HipChatic.scss */
+body.normal .sender {
+  float: left;
+  margin-left: -11.75em;
+  padding: 0.4em 0.4em 0 0;
+  width: 11.75em;
+  text-align: right;
+  box-sizing: border-box;
+}
+/* line 65, HipChatic.scss */
+body.normal .sender[type=myself] {
+  color: #45537f;
+  font-weight: bold;
+}
+/* line 69, HipChatic.scss */
+body.normal .sender[type=myself]:after {
+  content: " ★";
+}
+/* line 74, HipChatic.scss */
+body.normal .sender[type=normal] {
+  color: #636363;
+  font-weight: bold;
+}
+/* line 81, HipChatic.scss */
+body.normal .time {
+  color: #a099a1;
+  float: right;
+  padding: 0.4em 0.7em 0 0;
+  font-size: 0.8em;
+}
+/* line 89, HipChatic.scss */
+body.normal .message {
+  display: block;
+  padding: 0.4em 3.75em 0.4em 0.5em;
+  background-color: white;
+  border-left: 1px solid white;
+  box-shadow: -1px 0 #e1e1e1;
+}
+/* line 96, HipChatic.scss */
+body.normal .message .highlight {
+  color: magenta;
+  font-weight: bold;
+}
+/* line 102, HipChatic.scss */
+body.normal .message[type=system], body.normal .message[type=join], body.normal .message[type=part], body.normal .message[type=kick], body.normal .message[type=quit], body.normal .message[type=nick] {
+  background-color: #d3f4cd;
+  font-size: 0.8em;
+}
+/* line 107, HipChatic.scss */
+body.normal .message:before {
+  float: left;
+  margin-left: -11.75em;
+  padding: 0 1.1em 0 0;
+  width: 11.75em;
+  text-align: right;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+/* line 116, HipChatic.scss */
+body.normal .message[type=join]:before {
+  content: "Welcome!";
+}
+/* line 119, HipChatic.scss */
+body.normal .message[type=part]:before {
+  content: "Leaving";
+}
+/* line 122, HipChatic.scss */
+body.normal .message[type=kick]:before {
+  content: "Owned!";
+}
+/* line 125, HipChatic.scss */
+body.normal .message[type=quit]:before {
+  content: "Bye!";
+}
+/* line 128, HipChatic.scss */
+body.normal .message[type=nick]:before {
+  content: "NickServ";
+}
+/* line 132, HipChatic.scss */
+body.normal .message .url {
+  font-size: 0.9em;
+}
+/* line 135, HipChatic.scss */
+body.normal .message .inlineimage {
+  box-shadow: none;
+  margin: 0.5em 0.5em 0.5em 0;
+  border: 1px solid #e1e1e1;
+}
+
+/* line 143, HipChatic.scss */
+body.console {
+  padding: 5px;
+  font-size: 0.8em;
+}
+/* line 148, HipChatic.scss */
+body.console .sender:before {
+  content: "(";
+}
+/* line 151, HipChatic.scss */
+body.console .sender:after {
+  content: ") ";
+}
