@@ -1,11 +1,11 @@
 @charset "UTF-8";
-/* line 19, HipChat-ss.scss */
+/* line 21, HipChat-ss.scss */
 html {
   margin: 0;
   padding: 0;
 }
 
-/* line 24, HipChat-ss.scss */
+/* line 26, HipChat-ss.scss */
 body {
   font-family: 'Lucida Grande', HiraKakuProN-W3;
   font-size: 12px;
@@ -14,65 +14,75 @@ body {
   background-color: #f7f7f7;
 }
 
-/* line 32, HipChat-ss.scss */
+/* line 34, HipChat-ss.scss */
 a {
   color: #5681bf;
 }
 
-/* line 33, HipChat-ss.scss */
+/* line 35, HipChat-ss.scss */
 .url {
   word-break: break-all;
 }
 
-/* line 34, HipChat-ss.scss */
+/* line 36, HipChat-ss.scss */
 .address {
   word-break: break-all;
 }
 
-/* line 37, HipChat-ss.scss */
+/* line 39, HipChat-ss.scss */
 body.normal {
   background-color: #FFF;
   background-color: #f7f7f7;
   color: black;
   word-wrap: break-word;
 }
-/* line 44, HipChat-ss.scss */
+/* line 46, HipChat-ss.scss */
 body.normal .line {
   border-top: 1px solid #e1e1e1;
   box-shadow: 0 1px white inset;
   padding: 0 0 0 11.75em;
+  overflow: hidden;
 }
-/* line 51, HipChat-ss.scss */
+/* line 54, HipChat-ss.scss */
+body.normal .line[highlight=true] .sender {
+  background-color: #ffcecf;
+}
+/* line 57, HipChat-ss.scss */
+body.normal .line[highlight=true] .message {
+  background-color: #ffcecf;
+}
+/* line 64, HipChat-ss.scss */
 body.normal .sender {
   float: left;
-  margin-left: -11.75em;
-  padding: 0.4em 0.4em 0 0;
   width: 11.75em;
+  padding: 0.4em 0.4em 1000px 0;
+  margin-left: -11.8em;
+  margin-bottom: -1000px;
   text-align: right;
   box-sizing: border-box;
 }
-/* line 59, HipChat-ss.scss */
+/* line 73, HipChat-ss.scss */
 body.normal .sender[type=myself] {
   color: #45537f;
   font-weight: bold;
 }
-/* line 63, HipChat-ss.scss */
+/* line 77, HipChat-ss.scss */
 body.normal .sender[type=myself]:after {
   content: " ★";
 }
-/* line 68, HipChat-ss.scss */
+/* line 82, HipChat-ss.scss */
 body.normal .sender[type=normal] {
   color: #636363;
   font-weight: bold;
 }
-/* line 75, HipChat-ss.scss */
+/* line 89, HipChat-ss.scss */
 body.normal .time {
   color: #a099a1;
   float: right;
   padding: 0.4em 0.7em 0 0;
   font-size: 0.8em;
 }
-/* line 83, HipChat-ss.scss */
+/* line 97, HipChat-ss.scss */
 body.normal .message {
   display: block;
   padding: 0.4em 3.75em 0.4em 0.5em;
@@ -80,7 +90,7 @@ body.normal .message {
   border-left: 1px solid white;
   box-shadow: -1px 0 #e1e1e1;
 }
-/* line 90, HipChat-ss.scss */
+/* line 104, HipChat-ss.scss */
 body.normal .message .highlight {
   color: white;
   background-color: #7097c4;
@@ -89,62 +99,66 @@ body.normal .message .highlight {
   padding: 1px 4px;
   border-radius: 5px;
 }
-/* line 105, HipChat-ss.scss */
-body.normal .message[type=system], body.normal .message[type=error], body.normal .message[type=reply], body.normal .message[type=error_reply], body.normal .message[type=dcc_send_send], body.normal .message[type=dcc_send_receive], body.normal .message[type=notice], body.normal .message[type=action], body.normal .message[type=join], body.normal .message[type=part], body.normal .message[type=kick], body.normal .message[type=quit], body.normal .message[type=nick], body.normal .message[type=mode], body.normal .message[type=topic], body.normal .message[type=invite], body.normal .message[type=wallops], body.normal .message[type=debug_send], body.normal .message[type=debug_receive] {
+/* line 113, HipChat-ss.scss */
+body.normal .message[type=notice] {
+  background-color: #e4ecf6;
+}
+/* line 121, HipChat-ss.scss */
+body.normal .message[type=system], body.normal .message[type=error], body.normal .message[type=reply], body.normal .message[type=error_reply], body.normal .message[type=dcc_send_send], body.normal .message[type=dcc_send_receive], body.normal .message[type=action], body.normal .message[type=join], body.normal .message[type=part], body.normal .message[type=kick], body.normal .message[type=quit], body.normal .message[type=nick], body.normal .message[type=mode], body.normal .message[type=topic], body.normal .message[type=invite], body.normal .message[type=wallops], body.normal .message[type=debug_send], body.normal .message[type=debug_receive] {
   background-color: #d3f4cd;
   font-size: 0.8em;
 }
-/* line 110, HipChat-ss.scss */
+/* line 126, HipChat-ss.scss */
 body.normal .message:before {
   float: left;
-  margin-left: -11.75em;
-  padding: 0 1.1em 0 0;
   width: 11.75em;
+  padding: 0 1.1em 0 0;
+  margin-left: -11.8em;
   text-align: right;
   box-sizing: border-box;
   font-weight: bold;
 }
-/* line 119, HipChat-ss.scss */
+/* line 137, HipChat-ss.scss */
 body.normal .message[type=join]:before {
   content: "Welcome!";
 }
-/* line 122, HipChat-ss.scss */
+/* line 140, HipChat-ss.scss */
 body.normal .message[type=part]:before {
   content: "Leaving";
 }
-/* line 125, HipChat-ss.scss */
+/* line 143, HipChat-ss.scss */
 body.normal .message[type=kick]:before {
   content: "Owned!";
 }
-/* line 128, HipChat-ss.scss */
+/* line 146, HipChat-ss.scss */
 body.normal .message[type=quit]:before {
   content: "Bye!";
 }
-/* line 131, HipChat-ss.scss */
+/* line 149, HipChat-ss.scss */
 body.normal .message[type=nick]:before {
   content: "NickServ";
 }
-/* line 135, HipChat-ss.scss */
+/* line 153, HipChat-ss.scss */
 body.normal .message .url {
   font-size: 0.9em;
 }
-/* line 138, HipChat-ss.scss */
+/* line 156, HipChat-ss.scss */
 body.normal .message .inlineimage {
   box-shadow: none;
   margin: 0.5em 0.5em 0.5em 0;
   border: 1px solid #e1e1e1;
 }
 
-/* line 146, HipChat-ss.scss */
+/* line 164, HipChat-ss.scss */
 body.console {
   padding: 5px;
   font-size: 0.8em;
 }
-/* line 151, HipChat-ss.scss */
+/* line 169, HipChat-ss.scss */
 body.console .sender:before {
   content: "(";
 }
-/* line 154, HipChat-ss.scss */
+/* line 172, HipChat-ss.scss */
 body.console .sender:after {
   content: ") ";
 }

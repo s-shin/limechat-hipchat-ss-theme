@@ -1,17 +1,19 @@
-// TODO: 行ハイライト
-// TODO: メッセージ部分floatで高さをmaxにする(margin/pading +-)
+// TODO: システム系の.senderであるbeforeの幅高のフィット
 $linkColor: #5681BF;
-$lineColor: #E1E1E1;
-$lineHighlightColor: #FFF;
+$lineBorderColor: #E1E1E1;
+$lineBorderHighlightColor: #FFF;
+$lineHighlightBgColor: #FFCECF;
 $bgColor: #F7F7F7;
 $fontSize: 12px;
 $fontColor: #000;
 $senderWidth: 11.75em;
 $senderMyselfColor: #45537F;
 $senderNormalColor: #636363;
+$senderSystemColor: #E3FADD;
 $timeColor: #a099a1;
 $messageBgColor: #FFF;
 $systemMessageBgColor: #D3F4CD;
+$noticeMessageBgColor: #E4ECF6;
 $keywordFontColor: #FFF;
 $keywordBgColor: #7097c4;
 $keywordBorderColor: #5681bf;
@@ -40,19 +42,31 @@ body.normal {
   color: $fontColor;
   word-wrap: break-word;
 
-  // 各メッセージ間の線
+  // 1つのコメント行
   .line {
-    border-top: 1px solid $lineColor;
-    box-shadow: 0 1px $lineHighlightColor inset;
+    // 各メッセージ間の線
+    border-top: 1px solid $lineBorderColor;
+    box-shadow: 0 1px $lineBorderHighlightColor inset;
     padding: 0 0 0 $senderWidth;
+    overflow: hidden;
+
+    &[highlight=true] {
+      .sender {
+        background-color: $lineHighlightBgColor;
+      }
+      .message {
+        background-color: $lineHighlightBgColor;
+      }
+    }
   }
 
   // 送信者部分
   .sender {
     float: left;
-    margin-left: -$senderWidth;
-    padding: 0.4em 0.4em 0 0;
     width: $senderWidth;
+    padding: 0.4em 0.4em 1000px 0;
+    margin-left: -$senderWidth - 0.05em;
+    margin-bottom: -1000px;
     text-align: right;
     box-sizing: border-box;
     // 自分
@@ -84,8 +98,8 @@ body.normal {
     display: block;
     padding: 0.4em 3.75em 0.4em 0.5em;
     background-color: $messageBgColor;
-    border-left: 1px solid $lineHighlightColor;
-    box-shadow: -1px 0 $lineColor;
+    border-left: 1px solid $lineBorderHighlightColor;
+    box-shadow: -1px 0 $lineBorderColor;
 
     .highlight {
       color: $keywordFontColor;
@@ -96,10 +110,12 @@ body.normal {
       border-radius: 5px;
     }
 
+    &[type=notice] {
+      background-color: $noticeMessageBgColor;
+    }
 
     &[type=system], &[type=error], &[type=reply], &[type=error_reply],
-    &[type=dcc_send_send], &[type=dcc_send_receive],
-    &[type=notice], &[type=action],
+    &[type=dcc_send_send], &[type=dcc_send_receive], &[type=action],
     &[type=join], &[type=part], &[type=kick], &[type=quit], &[type=nick],
     &[type=mode], &[type=topic], &[type=invite], &[type=wallops],
     &[type=debug_send], &[type=debug_receive] {
@@ -109,12 +125,14 @@ body.normal {
 
     &:before {
       float: left;
-      margin-left: -$senderWidth;
-      padding: 0 1.1em 0 0;
       width: $senderWidth;
+      padding: 0 1.1em 0 0;
+      margin-left: -$senderWidth - 0.05em;
       text-align: right;
       box-sizing: border-box;
       font-weight: bold;
+      // FIXME: これだと高さがずれているのでダメ。代替案を考える。
+      // background-color: $senderSystemColor;
     }
     &[type=join]:before {
       content: "Welcome!";
@@ -138,7 +156,7 @@ body.normal {
     .inlineimage {
       box-shadow: none;
       margin: 0.5em 0.5em 0.5em 0;
-      border: 1px solid $lineColor;
+      border: 1px solid $lineBorderColor;
     }
   }
 }
