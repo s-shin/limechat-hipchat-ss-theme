@@ -1,4 +1,5 @@
-
+// TODO: 行ハイライト
+// TODO: メッセージ部分floatで高さをmaxにする(margin/pading +-)
 $linkColor: #5681BF;
 $lineColor: #E1E1E1;
 $lineHighlightColor: #FFF;
@@ -10,8 +11,10 @@ $senderMyselfColor: #45537F;
 $senderNormalColor: #636363;
 $timeColor: #a099a1;
 $messageBgColor: #FFF;
-$messageHightlightColor: #F0F;
 $systemMessageBgColor: #D3F4CD;
+$keywordFontColor: #FFF;
+$keywordBgColor: #7097c4;
+$keywordBorderColor: #5681bf;
 
 html {
   margin: 0;
@@ -29,15 +32,6 @@ body {
 a { color: $linkColor; }
 .url { word-break: break-all; }
 .address { word-break: break-all; }
-strong.highlight {
-  // TODO: 要調整
-  color: white;
-  background-color: #7097c4;
-  font-weight: normal;
-  border: 1px solid #5681bf;
-  padding: 1px 4px;
-  border-radius: 5px;
-}
 
 // メッセージエリア
 body.normal {
@@ -94,12 +88,21 @@ body.normal {
     box-shadow: -1px 0 $lineColor;
 
     .highlight {
-      color: $messageHightlightColor;
-      font-weight: bold;
+      color: $keywordFontColor;
+      background-color: $keywordBgColor;
+      font-weight: normal;
+      border: 1px solid $keywordBorderColor;
+      padding: 1px 4px;
+      border-radius: 5px;
     }
 
-    &[type=system], &[type=join], &[type=part], &[type=kick], &[type=quit],
-    &[type=nick] {
+
+    &[type=system], &[type=error], &[type=reply], &[type=error_reply],
+    &[type=dcc_send_send], &[type=dcc_send_receive],
+    &[type=notice], &[type=action],
+    &[type=join], &[type=part], &[type=kick], &[type=quit], &[type=nick],
+    &[type=mode], &[type=topic], &[type=invite], &[type=wallops],
+    &[type=debug_send], &[type=debug_receive] {
       background-color: $systemMessageBgColor;
       font-size: 0.8em;
     }
