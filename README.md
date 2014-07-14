@@ -11,7 +11,7 @@ HipChatライクなLimeChatテーマ。
 
 ```
 cd ~/Library/Application\ Support/net.limechat.LimeChat-AppStore/Themes
-git clone https://github.com/s-shin/limechat-hipchat-ss-theme.git
+git clone https://github.com/s-shin/limechat-hipchat-ss-theme.git HipChat-ss
 cd limechat-hipchat-ss-theme
 rake install
 ```
